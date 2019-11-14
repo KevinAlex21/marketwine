@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <title></title>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    
+      <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <div class="container">
+          
+       
+          <a class="navbar-brand" href="#"><i class="fas fa-wine-glass-alt"></i></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="textoNavbar">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Market Wine <span class="sr-only">(Página atual)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Destaques</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Preços</a>
+              </li>
+            </ul>
+            <a  href="/loginCNPJ/loginCola.php" onclick="window.close();" class="btn btn-dark">
+                <i class="fas fa-sign-in-alt"></i>
+                Acesse
+            </a>
+          </div>
+        </div>
+      </nav>
+      
+      <div id="meuCarousel" class="carousel slide" data-ride="carousel">
+      
+        <ol class="carousel-indicators">
+          <li data-target="carouselHome" data-slide-to="0" class="active"></li>
+          <li data-target="carouselHome" data-slide-to="1"></li>
+          <li data-target="carouselHome" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="img-fluid d-block" src="./foto/outro.jpg" alt="Primeiro Slide">
+
+              <div class="carousel-caption d-none d-md-block">
+
+                <h4>Lorem ipsum</h4>
+                <p> is simply dummy text of the printing and typesetting industry.</p>
+              </div>
+
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid d-block" src="./foto/vinho1.jpg" alt="Segundo Slide">
+
+              <div class="carousel-caption d-none d-md-block">
+
+                  <h4>Lorem ipsum</h4>
+                  <p> is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid d-block d-md-block" src="./foto/coisa3.jpg" alt="Terceiro Slide">
+
+              <div class="carousel-caption d-none  d-md-block">
+
+                  <h4>Lorem ipsum</h4>
+                  <p> is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+              
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#meuCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+          </a>
+          <a class="carousel-control-next" href="#meuCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Próximo</span>
+          </a>
+        </div>
+       
+        <div class="col-12 text-center my-5">
+
+          <h1 class="display-3">Teste</h1>
+          <p>Isso é um teste, 1,2,3 testando...</p>
+
+        </div>
+        
+
+        <div class="container">
+
+          <div class="row">
+            <div class="col-12 text-center my-5">
+
+              <h1 class="display-3">Why do we use it?</h1>
+              <p>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht.</p>
+            </div>
+
+          </div>
+          
+          <div class="row mb-5">
+
+            <div class="col-3">
+
+              <nav id="navertical" class="navbar navbar-light bg-ligth">
+
+                <nav class="nav nav-pills flex-colum">
+            
+
+                  <a class="nav-link" href="#item1">Quem nós somos?</a>
+
+                  <a class="nav-link" href="#item2">Como podemos te ajudar?</a>
+
+                  <a class="nav-link" href="#item3">Seja um colaborador AGORA.</a>
+
+                </nav>
+
+              </nav>
+
+            </div>
+
+            <div class="col-9">
+
+              <div data-spy="scroll" data-target="#navertical" data-offset="0" class="scrollspySite">
+                <style>
+                .scrollspySite {
+                  position: relative;
+                  overflow: auto;
+                  height: 180px;
+                }
+                
+                </style>
+
+                <h4 id="item1">Quem nós somos?</h4>
+                <p> ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. </p>
+
+                
+                <h4 id="item2">Como podemos te ajudar?</h4>
+                <p>Viele Desktop Publisher und Webeditoren nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach "lorem ipsum" macht viele Webseiten sichtbar, wo diese noch immer vorkommen. Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig, andere bewusst (beeinflusst von Witz und des eigenen Geschmacks)</p>
+
+
+                
+                <h4 id="item3">Seja um colaborador AGORA.</h4>
+                <p>Der Punkt, Lorem Ipsum zu nutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht.</p>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <link rel="stylesheet" type ="text/css" href="css/bootstrap.min.css">
+        <script src ="js/bootstrap.js"></script>
+        <script src="https://kit.fontawesome.com/95473a4750.js"></script>
+        
+  </body>
+</html>
