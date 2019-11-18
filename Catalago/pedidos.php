@@ -39,7 +39,7 @@ $idPedido = $_GET['idPedido'];
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="http://localhost:88/projeto/Catalago/loja.php">
+                    <a href="http://localhost:81/projeto/Catalago/loja.php">
                         <i class="fas fa-store-alt"></i>
                         Loja
                     </a>

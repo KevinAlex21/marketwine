@@ -32,7 +32,7 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="http://localhost:88/projeto/Catalago/loja.php">
+                    <a href="http://localhost:81/projeto/Catalago/loja.php">
                         <i class="fas fa-store-alt"></i>
                         Loja
                     </a>
@@ -109,7 +109,7 @@
                                 <div class="card-body">
                                     <p class="card-text"><strong>
                                             <font color="black">O FAQ da Market Wine tem como objetivo oferecer entendimento a perguntas frequentes, e responder com qualidade ao consumidor,
-                                                caso elas não atendam a sua necessidade, contate-nos no <a href="http://localhost:88/projeto/Catalago/sac.php">
+                                                caso elas não atendam a sua necessidade, contate-nos no <a href="http://localhost:81/projeto/Catalago/sac.php">
                                                     <font color="blue"> SAC.</font>
                                                 </a>
                                         </strong></br>
@@ -125,7 +125,7 @@
                                             <b> 5) Quais métodos de pagamento?</b></br>
                                             Através do cartão de crédito/ débito.</br>
                                             <b> 6) A minha empresa pode se tornar colaboradora de vocês?</b></br>
-                                            Sim, mas você precisa ter um CNPJ, acesse e efetue seu cadastro <a href="http://localhost:88/projeto/loginCNPJ/">
+                                            Sim, mas você precisa ter um CNPJ, acesse e efetue seu cadastro <a href="http://localhost:81/projeto/loginCNPJ/">
                                                 <font color="blue"> AQUI.</font>
                                             </a></strong></br></br>
 

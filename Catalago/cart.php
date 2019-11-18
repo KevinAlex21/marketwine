@@ -121,8 +121,8 @@ $total_price += ($product["valor"]*$product["quantidade"]);
 
 
 <br /><br />
-<a href="http://localhost:88/projeto/Catalago/loja.php"><strong>Continuar Comprando</strong></a> <br /><br />
-<a href="http://localhost:88/projeto/Catalago/config/carrinhovaz.php"><strong>Apagar Carrinho</strong></a> <br /><br />
+<a href="http://localhost:81/projeto/Catalago/loja.php"><strong>Continuar Comprando</strong></a> <br /><br />
+<a href="http://localhost:81/projeto/Catalago/config/carrinhovaz.php"><strong>Apagar Carrinho</strong></a> <br /><br />
 For More Web Development Tutorials Visit: <a href="https://www.allphptricks.com/"><strong>AllPHPTricks.com</strong></a>
 </div>
 </body>

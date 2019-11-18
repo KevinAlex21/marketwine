@@ -19,7 +19,7 @@
         $_SESSION ['clienteId'] = $resultad['idCliente'];
         $_SESSION ['clienteEmail'] = $resultad['email'];
         $_SESSION ['clienteNome'] = $resultad['nome'];
-        header ('Location:  http://localhost:88/projeto/Catalago/loja.php');
+        header ('Location:  http://localhost:81/projeto/Catalago/loja.php');
         exit ();
 //Não foi encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
 //redireciona o usuario para a página de login
@@ -33,7 +33,7 @@
                 <span aria-hidden='true'>&times;</span>
                 </button>
                 </div></div>";
-            header("Location: http://localhost:88/projeto/Catalago/");
+            header("Location: http://localhost:81/projeto/Catalago/");
         exit ();
     }
 

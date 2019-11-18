@@ -173,41 +173,38 @@ $total_vinhos = mysqli_num_rows($resultado_vinhos);
                 <li>
                     <a href="#tipoSubmennu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Origem</a>
                     <ul class="collapse list-unstyled" id="tipoSubmennu">
-                        <li>
-                            <a href="#">Bordeaux</a>
+                                              <li>
+                            <a href="bordeaux.php">Bordeaux</a>
                         </li>
                         <li>
-                            <a href="#">Mabernet Franc)</a>
+                            <a href="mabernet.php">Mabernet Franc)</a>
                         </li>
                         <li>
-                            <a href="#">Cabernet Sauvignon</a>
+                            <a href="cabernet.php">Cabernet Sauvignon</a>
                         </li>
                         <li>
-                            <a href="#">Cabernet Sauvignon</a>
+                            <a href="chardonnay.php">Chardonnay</a>
                         </li>
                         <li>
-                            <a href="#">Chardonnay</a>
+                            <a href="malbec.php">Malbec</a>
                         </li>
                         <li>
-                            <a href="#">Malbec</a>
+                            <a href="merlot.php">Merlot</a>
                         </li>
                         <li>
-                            <a href="#">Merlot</a>
-                        </li>
-                        <li>
-                            <a href="#">Pinot Noir</a>
+                            <a href="pinot.php">Pinot Noir</a>
                         </li>
                         <li>
                             <a href="porto.php">Porto</a>
                         </li>
                         <li>
-                            <a href="#">Sangiovese</a>
+                            <a href="sangiovese.php">Sangiovese</a>
                         </li>
                         <li>
-                            <a href="#">Sauvignon Blanc</a>
+                            <a href="sauvignon.php">Sauvignon Blanc</a>
                         </li>
                         <li>
-                            <a href="#">Syrah (Shiraz)</a>
+                            <a href="syrah.php">Syrah (Shiraz)</a>
                         </li>
                     </ul>
                 </li>

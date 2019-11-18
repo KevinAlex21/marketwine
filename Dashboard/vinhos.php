@@ -4,6 +4,11 @@ include_once("config/conexao.php");
 $result_vinho = "SELECT * FROM temp_produtos where  idColaborador ='" . $_SESSION['usuarioId'] . "'";
 $resultado_vinho =  mysqli_query($conn, $result_vinho) or die(mysqli_error($conn) . '/' . $$result_vinho);
 $idProduto = $_GET['idProduto'];
+
+
+$numero = "SELECT DISTINCT idPedido from faturamento where idColaborador ='" . $_SESSION['usuarioId'] . "'";
+$executaNum =  mysqli_query($conn,$numero);
+$totalnumVendas = mysqli_num_rows($executaNum);
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,6 +16,8 @@ $idProduto = $_GET['idProduto'];
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>MK - Meus Vinhos</title>
@@ -38,7 +45,7 @@ $idProduto = $_GET['idProduto'];
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Market Wine Dashboard</h3>
+                <h3>Market Wine </h3>
                 <strong>MW</strong>
             </div>
 
@@ -55,6 +62,13 @@ $idProduto = $_GET['idProduto'];
                         <i class="pe-7s-wine"></i>
                         Meus Vinhos
                     </a>
+                 <li>
+                    <a href="vendas.php">
+                        <i class="fas fa-piggy-bank"></i>
+                        Minhas Vendas
+                         <span class="badge badge-light"><?php echo $totalnumVendas; ?></span>
+                    </a>
+                </li>
                 <li>
                     <a href="user.php">
                         <i class="pe-7s-user"></i>

@@ -41,7 +41,7 @@ include_once("conexao.php");
   </button>
   </div></div>";
         mysqli_close($conn);
-        header("Location: http://localhost:88/projeto/Cliente/"); 
+        header("Location: http://localhost:81/projeto/Cliente/"); 
 }
 // Verifica quantidade de caracteres é igual a 11	
     elseif((strlen($dados['cpf'])) == 11){
@@ -55,7 +55,7 @@ include_once("conexao.php");
   </button>
   </div></div>";
         mysqli_close($conn);
-        header("Location: http://localhost:88/projeto/Cliente/"); 
+        header("Location: http://localhost:81/projeto/Cliente/"); 
 
 //Verifica se todos os campos foram digitados
 }elseif(in_array('',$dados)){
@@ -85,7 +85,7 @@ include_once("conexao.php");
 
 //Verifica se esta o caractere ' na senha
         mysqli_close($conn);
-        header("Location: http://localhost:88/projeto/Cliente/");
+        header("Location: http://localhost:81/projeto/Cliente/");
 	}elseif(stristr($dados['senha'], "'")) {
 		$erro = true;
         $_SESSION['msg'] = 
@@ -97,7 +97,7 @@ include_once("conexao.php");
   </button>
 </div></div>";
         mysqli_close($conn);
-        header("Location: http://localhost:88/projeto/Cliente/");
+        header("Location: http://localhost:81/projeto/Cliente/");
 
     //Consulta na tabela colaborador se o CPF ja esta sendo utilizado
 	}else{
@@ -114,7 +114,7 @@ include_once("conexao.php");
   </button>
   </div></div>";
    mysqli_close($conn);
-            header("Location: http://localhost:88/projeto/Cliente/");
+            header("Location: http://localhost:81/projeto/Cliente/");
 		}
 			
   //Consulta na tabela se o email ja está sendo utilizado
@@ -131,7 +131,7 @@ include_once("conexao.php");
   </button>
 </div></div>";
             mysqli_close($conn);
-            header("Location: http://localhost:88/projeto/Cliente/");
+            header("Location: http://localhost:81/projeto/Cliente/");
 		}
     }
 
@@ -144,7 +144,7 @@ nome, sobrenome, nascimento, cpf, sexo, cep, numero, endereco, bairro, cidade, e
     $resultado_usuario = mysqli_query($conn, $result_usuario); 
         if(mysqli_insert_id($conn)){
   $_SESSION['msgcad'] ="<script type=\"text/javascript\">alert('Você se cadastrou com sucesso na Market Wine');</script>";
-			header("Location: http://localhost:88/projeto/Catalago/");
+			header("Location: http://localhost:81/projeto/Catalago/");
 		}else{
            echo "Error: " . $result_usuario . "<br>" . $conn->error;
         }

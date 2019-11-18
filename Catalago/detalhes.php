@@ -40,7 +40,7 @@ $row2 = mysqli_fetch_assoc($roda);
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="http://localhost:88/projeto/Catalago/loja.php">
+                    <a href="http://localhost:81/projeto/Catalago/loja.php">
                         <i class="fas fa-store-alt"></i>
                         Loja
                     </a>;
@@ -89,7 +89,7 @@ $row2 = mysqli_fetch_assoc($roda);
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost:88/projeto/catalago/loja.php">
+                                <a class="nav-link" href="http://localhost:81/projeto/catalago/loja.php">
                                     <button type="button" class="btn btn-danger"><i class="fas fa-arrow-circle-left"></i> Voltar</button>
                                 </a>
                             </li>

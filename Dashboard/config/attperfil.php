@@ -16,14 +16,14 @@ include_once("conexao.php");
  
 		if(mysqli_affected_rows($conn) !=0){
 			echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost:88/meuDash/user.php'>
+				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost:81/projeto/dashboard/user.php'>
 				<script type=\"text/javascript\">
 					alert(\"Parabéns seu perfil foi alterado com Sucesso.\");
 				</script>
 			";	
 		}else{
 			echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=hhttp://localhost:88/meuDash/user.php'>
+				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=hhttp://localhost:81/meuDash/user.php'>
 				<script type=\"text/javascript\">
 					alert(\"Ocorreu um erro ao tentar alterar seu Perfil.\");
 				</script>

@@ -32,7 +32,7 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="http://localhost:88/projeto/Catalago/loja.php">
+                    <a href="http://localhost:81/projeto/Catalago/loja.php">
                         <i class="fas fa-store-alt"></i>
                         Loja
                     </a>
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text"><strong>O SAC da Market Wine tem como objetivo oferecer atendimento de qualidade ao consumidor, para que possa fazer reclamações e esclarecer dúvidas
-                                            que não se encontram no <a href="http://localhost:88/projeto/Catalago/faq.php">
+                                            que não se encontram no <a href="http://localhost:81/projeto/Catalago/faq.php">
                                                 <font color="blue"> FAQ.</font>
                                             </a></strong></br>
                                         </br>

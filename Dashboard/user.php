@@ -1,6 +1,9 @@
 <?php
 session_start();
 include_once("config/conexao.php");
+$numero = "SELECT DISTINCT idPedido from faturamento where idColaborador ='" . $_SESSION['usuarioId'] . "'";
+$executaNum =  mysqli_query($conn,$numero);
+$totalnumVendas = mysqli_num_rows($executaNum);
 $busca_pfil = "SELECT * FROM temp_colaboradores where  idColaborador ='" . $_SESSION['usuarioId'] . "'";
 $resultado_pfil =  mysqli_query($conn, $busca_pfil) or die(mysqli_error($conn) . '/' . $$busca_pfil);
 ?>
@@ -99,7 +102,7 @@ $resultado_pfil =  mysqli_query($conn, $busca_pfil) or die(mysqli_error($conn) .
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Market Wine Dasbord</h3>
+                <h3>Market Wine </h3>
                 <strong>MW</strong>
             </div>
 
@@ -116,6 +119,14 @@ $resultado_pfil =  mysqli_query($conn, $busca_pfil) or die(mysqli_error($conn) .
                         <i class="pe-7s-wine"></i>
                         Meus Vinhos
                     </a>
+                     <li>
+                    <a href="vendas.php">
+                        <i class="fas fa-piggy-bank"></i>
+                        Minhas Vendas
+                         <span class="badge badge-light"><?php echo $totalnumVendas; ?></span>
+                    </a>
+                </li>
+                </li>
                 <li class="active">
                     <a href="user.php">
                         <i class="pe-7s-user"></i>
@@ -186,13 +197,32 @@ $resultado_pfil =  mysqli_query($conn, $busca_pfil) or die(mysqli_error($conn) .
                                                     </div>
                                                 </div>
                                         </div>
-
-
+                                        <div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                 <label for="pincode">Telefone</label>
+                                                 <input type="number" class="form-control" name="telefone" id="telefone" required />
+                                                </div>
+                                            </div>
+                                          <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                 <label for="pincode">Celular</label>
+                                                 <input type="number" class="form-control" name="celular" id="celular"  required />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 pr-1">
+                                            <div class="form-group">
+                                                 <label for="pincode">Número</label>
+                                                 <input type="number" class="form-control" name="numero" id="numero"  required />
+                                                </div>
+                                            </div>                                          
+                                        </div>
+                                        
                                         <div class="row">
                                             <div class="col-md-4 pr-1">
                                                 <div class="form-group">
                                                     <label for="pincode">CEP</label>
-                                                    <input type="text" class="form-control" name="cep" id="cep" value="<?php echo $rows_pfil['cep']; ?>""size=" 10" maxlength="9" onblur="pesquisacep(this.value);" required />
+                                                    <input type="number" class="form-control" name="cep" id="cep" value="<?php echo $rows_pfil['cep']; ?>""size=" 10" maxlength="9" onblur="pesquisacep(this.value);" required />
                                                 </div>
                                             </div>
                                             <div class="col-md-4 pr-1">

@@ -34,7 +34,7 @@ if (preg_match('/(\d)\1{13}/', $cnpj)) {
   </button>
   </div></div>";
   mysqli_close($conn);
-  header("Location: http://localhost:88/projeto/loginCNPJ/");
+  header("Location: http://localhost:81/projeto/loginCNPJ/");
 }
 // Verifica quantidade de caracteres é igual a 18	
 elseif ((strlen($dados['cnpj'])) < 14) {
@@ -48,7 +48,7 @@ elseif ((strlen($dados['cnpj'])) < 14) {
   </button>
   </div></div>";
   mysqli_close($conn);
-  header("Location: http://localhost:88/projeto/loginCNPJ/");
+  header("Location: http://localhost:81/projeto/loginCNPJ/");
 
   //Verifica se todos os campos foram digitados
 } elseif (in_array('', $dados)) {
@@ -78,7 +78,7 @@ elseif ((strlen($dados['cnpj'])) < 14) {
 
   //Verifica se esta o caractere ' na senha
   mysqli_close($conn);
-  header("Location: http://localhost:88/projeto/loginCNPJ/");
+  header("Location: http://localhost:81/projeto/loginCNPJ/");
 } elseif (stristr($dados['senha'], "'")) {
   $erro = true;
   $_SESSION['msg'] =
@@ -90,7 +90,7 @@ elseif ((strlen($dados['cnpj'])) < 14) {
   </button>
   </div></div>";
   mysqli_close($conn);
-  header("Location: http://localhost:88/projeto/loginCNPJ/");
+  header("Location: http://localhost:81/projeto/loginCNPJ/");
 
   //Consulta na tabela colaborador se o CNPJ ja esta sendo utilizado
 } else {
@@ -107,7 +107,7 @@ elseif ((strlen($dados['cnpj'])) < 14) {
   </button>
   </div></div>";
     mysqli_close($conn);
-    header("Location: http://localhost:88/projeto/loginCNPJ/");
+    header("Location: http://localhost:81/projeto/loginCNPJ/");
   }
 
   //Consulta na tabela se o email ja está sendo utilizado
@@ -124,7 +124,7 @@ elseif ((strlen($dados['cnpj'])) < 14) {
   </button>
 </div></div>";
     mysqli_close($conn);
-    header("Location: http://localhost:88/projeto/loginCNPJ/");
+    header("Location: http://localhost:81/projeto/loginCNPJ/");
   }
 }
 
@@ -149,7 +149,7 @@ if (!$erro) {
 		  <p class='mb-0'>Você deverá preencher todas as informações de contato!
 		</div></div>";
     mysqli_close($conn);
-    header("Location: http://localhost:88/projeto/loginCNPJ/");
+    header("Location: http://localhost:81/projeto/loginCNPJ/");
   } else {
     echo "Error: " . $result_usuario . "<br>" . $conn->error;
   }

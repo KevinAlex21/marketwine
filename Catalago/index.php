@@ -58,39 +58,37 @@ $total_vinhos = mysqli_num_rows($resultado_vinhos);
 
             <ul class="list-unstyled components text-center">
 
-                <form class="form-inline text-center" method="GET" action="pesquisar.php">
-                    <input class="form-control mr-sm-2 text-center" name="pesquisar" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-                </form>
+                
                 <p>
                     <li class="active">
-                        <a href="teste.php">
+                        <a href="#" data-toggle="modal" data-target="#ExemploModalCentralizado">
                             <i class="fas fa-wine-glass-alt"></i>
                             Tipos
                         </a>
                     </li>
                     <p>
                         <li>
-                            <a href="vinhos.php">
+                            <a href="#" data-toggle="modal" data-target="#ExemploModalCentralizado">
                                 <i class="fas fa-wine-bottle"></i>
                                 Classes
                             </a>
                             <p>
                         <li>
-                            <a href="#">
+                            <a href="#" data-toggle="modal" data-target="#ExemploModalCentralizado">
                                 <i class="fas fa-wine-glass-alt"></i>
                                 Teores de Açucar
                             </a>
                         </li>
                         <p>
                             <li>
-                                <a href="#">
+                               <a href="#" data-toggle="modal" data-target="#ExemploModalCentralizado">
                                     <i class="fas fa-question"></i>
                                     FAQ
                                 </a>
                             </li>
                             <p>
                                 <li>
-                                    <a href="sac.php">
+                                    <a href="#" data-toggle="modal" data-target="#ExemploModalCentralizado">
                                         <i class="fas fa-paper-plane"></i>
                                         SAC
                                     </a>
@@ -115,7 +113,7 @@ $total_vinhos = mysqli_num_rows($resultado_vinhos);
                                     </button>
                                 </a>
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost:88/projeto/LoginCNPJ/">
+                                <a class="nav-link" href="http://localhost:81/projeto/LoginCNPJ/">
                                     <button type="button" class="btn btn-danger"><i class="fas fa-user-tag "></i> Seja um COLABORADOR</button>
                                 </a>
                             </li>
@@ -144,7 +142,7 @@ $total_vinhos = mysqli_num_rows($resultado_vinhos);
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                            <a href="http://localhost:88/projeto/Cliente/" onclick="window.close();" class="btn btn-info">
+                                            <a href="http://localhost:81/projeto/Cliente/" onclick="window.close();" class="btn btn-info">
                                                 <i class="fas fa-sign-in-alt"></i>
                                                 Cadastre-se aqui!
                                             </a>
@@ -183,26 +181,26 @@ $total_vinhos = mysqli_num_rows($resultado_vinhos);
                                                 <ul class="list-group list-group-flush">
                                                     <li class="list-group-item"><?php echo $rows_vinhos['cor']; ?></li>
                                                 </ul>
-                                                <li class="list-group-item"><?php echo $rows_vinhos['valor']; ?></li>
+                                                <li class="list-group-item">R$ <?php echo $rows_vinhos['valor']; ?></li>
                                                 </ul>
                                                 <hr>
                                                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ExemploModalCentralizado">Comprar
                                                     <i class="fas fa-shopping-cart"></i>
                                                     </a>
                                                 </button>
-                                                <a href="#" class="btn btn-info btn-sm ">Info
+                                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ExemploModalCentralizado">Info
                                                     <i class="fas fa-info-circle"></i>
                                                 </a>
+                                                 </button>
                                                 <hr>
                                             </div>
                                     </span>
                                     <br />
                                 <?php } ?>
                             </div>
-                        </div>
-
+                                </div>
                     </div>
-
+                </div>
                 </div>
                 <?php
                 //Verificar a pagina anterior e posterior

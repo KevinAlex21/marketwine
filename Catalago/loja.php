@@ -28,17 +28,12 @@ if (isset($_POST['nome']) && $_POST['nome'] != "") {
 
   if (empty($_SESSION["shopping_cart"])) {
     $_SESSION["shopping_cart"] = $cartArray;
-    $status = " 
-		<div class='row d-flex justify-content-center'>
-		<div class='alert alert-success' role='alert'>
-		  <button type='button' class='close' data-dismiss='alert' aria-label='Clos'>
-		  <span aria-hidden='true'>&times;</span>
-		  </button>
-		  <h4 class='alert-heading'>Muito bem!</h4>
-		  <p>O produto foi adicionado ao carrinho</p>
-		  <hr>
-		  <p class='mb-0'> Você pode adicionar mais se quiser :)</p>
-		</div></div>";
+    $status = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+  <strong>Legal!</strong> O produto foi adicionado ao carrinho
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>";
   } else {
     $array_keys = array_keys($_SESSION["shopping_cart"]);
     if (in_array($name, $array_keys)) {
@@ -53,7 +48,7 @@ if (isset($_POST['nome']) && $_POST['nome'] != "") {
         $_SESSION["shopping_cart"],
         $cartArray
       );
-      $status = "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+      $status = "<div class='alert alert-info alert-dismissible fade show' role='alert'>
   <strong>Legal!</strong> O produto foi adicionado ao carrinho
   <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
     <span aria-hidden='true'>&times;</span>

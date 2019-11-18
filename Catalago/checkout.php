@@ -1,5 +1,6 @@
 <?php
 session_start();
+header('Content-Type: text/html; charset=utf-8');
 include_once("./config/conexao.php");
 
 
@@ -129,12 +130,12 @@ $idc = $_SESSION['clienteId'];
                 <h6 class="my-0"><?php echo $product["nome"]; ?></h6>
                 <small class="text-muted"><?php echo $product["quantidade"]; ?> Unidade</small>
               </div>
-              <span class="text-muted">R$<?php echo  $_SESSION["totals"]; ?></span>
+              <span class="text-muted">R$<?php echo  $product["valor"]; ?></span>
             </li>
           <?php } ?>
           <li class="list-group-item d-flex justify-content-between">
             <span>Total (BRL)</span>
-            <strong>R$ <?php echo  $_SESSION["total"] ?></strong>
+            <strong>R$ <?php echo  number_format($_SESSION["total"], 2, ',', '.') ?></strong>
           </li>
           </ul>
       </div>
@@ -269,11 +270,11 @@ $idc = $_SESSION['clienteId'];
                 </select>
                 <select>
                   <option value="16"> 2019</option>
-                  <option value="17"> 2018</option>
-                  <option value="18"> 2020</option>
-                  <option value="19"> 2021</option>
-                  <option value="20"> 2022</option>
-                  <option value="21"> 2023</option>
+                  <option value="17"> 2020</option>
+                  <option value="18"> 2021</option>
+                  <option value="19"> 2022</option>
+                  <option value="20"> 2023</option>
+                  <option value="21"> 2024</option>
                 </select>
               </div>
               <div class="form-group" id="credit_cards">
@@ -316,19 +317,20 @@ $idc = $_SESSION['clienteId'];
           $nomes = $carrinho["nome"];
           $colaborador = $carrinho["idColaborador"];
           $_SESSION["qtd"] = $qtd;
-          $valorUni =  $_SESSION["totals"];
+          $valorUni =  $carrinho["valor"];
         }
+        
         $qry_insert = "INSERT INTO itens_pedido (idPedido,idProduto,quantidade,nome,valorUni) VALUES ($idVenda,$codigo,$qtd,'$nomes','$valorUni')";
         mysqli_query($conn, $qry_insert) or die('Erro: ' . mysqli_error($conn) . '  || SQL: ' . $qry_insert . ' Fim ' . $carrinho);
 
-        $qry_venda = "INSERT INTO faturamento (idColaborador,idProduto,item,quantidade,valor) VALUES ($colaborador,$codigo,'$nomes',$qtd,'$valorUni')";
+        $qry_venda = "INSERT INTO faturamento (idColaborador,idProduto,item,quantidade,valor,dataVenda,idPedido,total) VALUES ($colaborador,$codigo,'$nomes',$qtd,'$valorUni',now(),$idVenda,$b)";
         mysqli_query($conn, $qry_venda) or die('Erro ' . mysqli_error($conn) . ' || SQL' . $qry_venda . ' Fim ');
         $qry_vendeu = "UPDATE temp_produtos SET quantidade =  ( quantidade - '{$qtd}') WHERE idProduto = '{$codigo}'";
         mysqli_query($conn, $qry_vendeu) or die('Erro ' . mysqli_error($conn) . ' || SQL' . $qry_vendeu . ' Fim ');
       }
 
       echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost:88/projeto/catalago/loja.php'>
+				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost:81/projeto/catalago/loja.php'>
 				<script type=\"text/javascript\">
 					alert(\"Sua compra foi finalizada com sucesso.\");
 				</script>
@@ -336,7 +338,8 @@ $idc = $_SESSION['clienteId'];
 
 
 
-      unset($_SESSION["shopping_cart"],
+      unset(
+      $_SESSION["shopping_cart"],
       $_SESSION["totals"],
       $_SESSION["total"],
       $_SESSION["qtd"]);

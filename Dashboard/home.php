@@ -2,12 +2,13 @@
 session_start();
 include_once("config/conexao.php");
 $mes_atual = date("m");
-
-
+$numero = "SELECT DISTINCT idPedido from faturamento where idColaborador ='" . $_SESSION['usuarioId'] . "'";
+$executaNum =  mysqli_query($conn, $numero);
+$totalnumVendas = mysqli_num_rows($executaNum);
 $estoque = "select SUM(quantidade) AS total  from temp_produtos where idColaborador ='" . $_SESSION['usuarioId'] . "'";
 $query = "select count(idColaborador) as vendendo from temp_produtos where idColaborador ='" . $_SESSION['usuarioId'] . "'";
 $query1 = "select count(idColaborador) as vendeu from faturamento where idColaborador ='" . $_SESSION['usuarioId'] . "' and YEARWEEK(dataVenda, 1) = YEARWEEK(CURDATE(), 1)";
-$query2 = "select sum(cast(REPLACE(valor, ',', '.') as decimal(8,2))) as faturou from faturamento where idColaborador ='" . $_SESSION['usuarioId'] . "' and MONTH(dataVenda) = '$mes_atual'";
+$query2 = "select sum(cast(REPLACE(valor, ',', '.') * quantidade as decimal(8,2))) as faturou from faturamento where idColaborador ='" . $_SESSION['usuarioId'] . "' and MONTH(dataVenda) = '$mes_atual' group by dataVenda";
 
 $resul = mysqli_query($conn, $estoque);
 $result = mysqli_query($conn, $query);
@@ -33,6 +34,8 @@ while ($faturou = mysqli_fetch_array($result2)) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Dashboard</title>
@@ -56,7 +59,7 @@ while ($faturou = mysqli_fetch_array($result2)) {
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Market Wine Dashboard</h3>
+                <h3>Market Wine </h3>
                 <strong>MW</strong>
             </div>
 
@@ -73,6 +76,14 @@ while ($faturou = mysqli_fetch_array($result2)) {
                         <i class="pe-7s-wine"></i>
                         Meus Vinhos
                     </a>
+                <li>
+                    <a href="vendas.php">
+
+                        <i class="fas fa-piggy-bank"></i>
+                        Minhas Vendas
+                        <span class="badge badge-light"><?php echo $totalnumVendas; ?></span>
+                    </a>
+                </li>
                 <li>
                     <a href="user.php">
                         <i class="pe-7s-user"></i>
@@ -132,7 +143,9 @@ while ($faturou = mysqli_fetch_array($result2)) {
                     </div>
                 </div>
             </nav>
-
+            <p>
+                <h1>&nbsp;</h1>
+            </p>
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
@@ -186,12 +199,29 @@ while ($faturou = mysqli_fetch_array($result2)) {
                                 </div>
                             </a>
                         </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="card text-white bg-warning mb-3 text-center" style="max-width: 18rem;">
+                            <div class="card-header"><font color ="black">Relatório de Vendas</div>
+                            <div class="card-body">
+                                <form method="post" action="relatorio.php">
+                                    <h5 class="card-title">Do dia:</h5>
+                                    <input type="date" class="form-control" id="inicio" name="inicio"><br>
+                                    <h5 class="card-title">Até o dia:</h5>
+                                    <input type="date" class="form-control" id="fim" name="fim"><br>
+                                    <div class="card-footer bg-transparent border-success"></div>
+                                    <button type="submit" target="t_blank" class="btn btn-primary ">Gerar </a></button>
+                            </font></div>
 
+                            </form>
+                            <p class="card-text"></p>
+
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
+    </div>
 
     </div>
 

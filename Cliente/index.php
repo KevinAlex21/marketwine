@@ -7,6 +7,8 @@ include_once("./config/conexao.php");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Formulário Cadastro</title>
   <!-- Bootstrap CSS CDN -->
@@ -118,10 +120,10 @@ include_once("./config/conexao.php");
             </div>
           </div>
         </div>
-        <div class="col-md-8">
-          <div class="card border-dark  mb-3">
+        <div class="col-md-8 text-center">
+          <div class="card border-dark  mb-3 text-center" >
             <div class="card-header">Preencha o Formulário</div>
-            <div class="card-body">
+            <div class="card-body text-center">
               <form method="POST" action="./config/processa.php">
                 <div class="form-row">
                   <div class="col-md-4 mb-3">
@@ -130,14 +132,17 @@ include_once("./config/conexao.php");
                   <div class="col-md-4 mb-3">
                     <input type="text" class="form-control" name='sobrenome' id="sobrenome" placeholder="Sobrenome" required>
                   </div>
+                 
+                </div>
+                 <div class="form-row">
                   <div class="col-md-4 mb-3">
+                    <input type="text" name="cpf" class="form-control" id="cpf" placeholder="CPF" required>
+                  </div>
+                   <div class="col-md-4 mb-3">
                     <input type="date" class="form-control" id="nascimneto" name="nascimento" max="<?php echo date('2001-10-30', strtotime('-18 year')); ?>" required>
                     <small id="dateInputHelp" class="text-muted">
                       Informe sua data de nascimento.
                     </small>
-                  </div>
-                  <div class="col-md-4 mb-3">
-                    <input type="text" name="cpf" class="form-control" id="cpf" placeholder="CPF" required>
                   </div>
                 </div>
                 <div class="form-row">
@@ -157,6 +162,9 @@ include_once("./config/conexao.php");
                   </div>
                   <div class="col-md-1 mb-3">
                     <input name="uf" type="text" class="form-control" placeholder="UF" id="uf" required />
+                  </div>
+                  <div class="col-md-1 mb-3">
+                    <input name="numero" type="number" class="form-control" placeholder="1" id="uf" required />
                   </div>
                 </div>
                 <div class="form-row">
@@ -189,9 +197,9 @@ include_once("./config/conexao.php");
     </div>
   </div>
   <script src="js/jquery-3.3.1.slim.min.js" </script> <script src="js/popper.min.js" </script> <!-- Bootstrap JS -->
-    < script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-    integrity = "sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-    crossorigin = "anonymous" >
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin ="anonymous">
   </script>
   <!-- JS -->
 

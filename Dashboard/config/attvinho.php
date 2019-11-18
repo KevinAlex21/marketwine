@@ -20,14 +20,14 @@ include_once("conexao.php");
  
 		if(mysqli_affected_rows($conn) !=0){
 			echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;http://localhost:88/projeto/dashboard/vinhos.php'>
+				<META HTTP-EQUIV=REFRESH CONTENT = '0;http://localhost:81/projeto/dashboard/vinhos.php'>
 				<script type=\"text/javascript\">
 					alert(\"Parabéns seu vinho foi alterado com Sucesso.\");
 				</script>
 			";	
 		}else{
 			echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost:88/projeto/dashboard/vinhos.php'>
+				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost:81/projeto/dashboard/vinhos.php'>
 				<script type=\"text/javascript\">
 					alert(\"Ocorreu um erro ao tentar alterar seu Perfil.\");
 				</script>

@@ -163,7 +163,7 @@ foreach ($_SESSION["shopping_cart"] as $product){
                 <span aria-hidden='true'>&times;</span>
                 </button>
                 </div></div>";
-            header("Location: http://localhost:88/projeto/catalago/loja.php");
+            header("Location: http://localhost:81/projeto/catalago/loja.php");
         exit ();
 	}
 ?>
@@ -207,7 +207,7 @@ foreach ($_SESSION["shopping_cart"] as $carrinho) {
 
 ?>
 <a
-type="button" href="http://localhost:88/projeto/Catalago/checkout.php" class="btn btn-outline-success btn-lg pull-right">
+type="button" href="http://localhost:81/projeto/Catalago/checkout.php" class="btn btn-outline-success btn-lg pull-right">
 <strong>Finalizar Pedido</strong><i class="fas fa-angle-double-right fa-lg"></i>
 </button></a>
 <!--<form action="" enctype="multpart/form-data" method="post">
@@ -215,7 +215,7 @@ type="button" href="http://localhost:88/projeto/Catalago/checkout.php" class="bt
 </form>
 !-->
 <a
-type="button" href="http://localhost:88/projeto/Catalago/loja.php" class="btn btn-outline-warning btn-lg">
+type="button" href="http://localhost:81/projeto/Catalago/loja.php" class="btn btn-outline-warning btn-lg">
 <strong><i class="fas fa-angle-double-left fa-lg"></i>  Continuar Comprando</strong>
 </button></a> 
 

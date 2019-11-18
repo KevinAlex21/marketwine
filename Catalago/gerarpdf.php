@@ -1,4 +1,5 @@
 <?php
+ini_set('max_execution_time', 60);
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 include_once("config/conexao.php");
@@ -14,29 +15,56 @@ $idCliente = $_SESSION ['clienteId'];
 							INNER JOIN itens_pedido ON pedidos.idPedido = itens_pedido.idPedido
 							where pedidos.idCliente=$idCliente and itens_pedido.idPedido = '$idPedido'";
 	$resultado_usuario = mysqli_query($conn, $result_usuario);	
-	$row_usuario = mysqli_fetch_assoc($resultado_usuario) Or die('Erro: ' . mysqli_error($conn) . '  || SQL: ' . $resultado_usuario.' Fim '. $result_usuario);	
+	$row_usuario = mysqli_fetch_assoc($resultado_usuario) Or die('Erro: ' . mysqli_error($conn) . '  || SQL: ' . $resultado_usuario.' Fim '. $result_usuario);
+		$total = $row_usuario['total'];	
 		$query = $conn->prepare("SELECT pedidos.*, itens_pedido.* from pedidos
 							INNER JOIN itens_pedido ON pedidos.idPedido = itens_pedido.idPedido
 							where pedidos.idCliente=$idCliente and itens_pedido.idPedido = '$idPedido'");
 		$query->execute();
 		$res = $query->get_result();
 
-
 				$pagina = "<html>
+				<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+				<head>
+				<style>
+#customers {
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #c60000;;
+  color: white;
+}
+</style>
+				</head>
 			<body>
 			<img src='img/NFee.png' width'100%' height='100%'>
 				Numero do Pedido: ".$row_usuario['numPedido']."<br>
 				Tipo de Pagamento: ".$row_usuario['tipoPagamento']."<br><br>
 				Nome: ".$row_cliente['nome']." ".$row_cliente['sobrenome']."<br>
 				CPF: ".$row_cliente['cpf']."<br>
-				Endereço:  ".$row_usuario['enderecoEntrega']." Nº:".$row_usuario['enderecoEntrega']."<br>
+				Endereço:  ".$row_usuario['enderecoEntrega']." Nº:".$row_usuario['numero']."<br>
 				Bairro:  ".$row_usuario['Bairro']."<br>
 				Cidade:  ".$row_usuario['cidade']."<br>
 				Estado:  ".$row_usuario['Estado']."<br>
 				
 				<h3>Lista de itens:<h3>
 				
-				<table width='400' border='1' cellspacing='1' cellpadding='1'>
+				<table id='customers'>
 						<thead>
 							<tr>
 								<th>Nome</th>
@@ -59,13 +87,13 @@ $idCliente = $_SESSION ['clienteId'];
 				</tbody>
 				</table>
 				<br><br>
-				<table width='400' border='1' cellspacing='1' cellpadding='1'>
+				<table id='customers'>
 				<thead>
 				<tr>
-				<th>Total:<th>
+				<th>Total:</th>
 				</tr>
 				</thead>
-				<td>R$".$row_usuario['total']."</td>
+				<td>R$".number_format($total, 2, ',', '.')."</td>
 				</table>
 				</body>
 				</html>";

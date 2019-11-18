@@ -33,7 +33,8 @@ $result_usuario = "INSERT INTO temp_produtos (
 		detalhes,
         picture,
         idColaborador,
-        safra
+        safra,
+        criadoEm
 		) VALUES (
         '$nome',
         '$select_classe',
@@ -45,13 +46,14 @@ $result_usuario = "INSERT INTO temp_produtos (
 		'$detalhes',
         '$image',
         '$idUsuario',
-        '$safra'
+        '$safra',
+        now()
 		)";
 $resultado_usuario = mysqli_query($conn, $result_usuario) or die('Erro ao Cadastrar produto: erro ' . mysqli_error($conn) . '/' . $result_usuario);
 
 if (mysqli_insert_id($conn)) {
     $_SESSION['msgcad'] = "<script type=\"text/javascript\">alert('Você cadastrou um Vinho !');</script>";
-    header("Location: http://localhost:88/projeto/dashboard/vinhos.php");
+    header("Location: http://localhost:81/projeto/dashboard/vinhos.php");
 } else {
     echo "erro ao cadastrar";
 }

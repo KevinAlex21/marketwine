@@ -21,7 +21,7 @@
         $_SESSION ['usuarioEmail'] = $resultado['email'];
         $_SESSION ['usuarioNome'] = $resultado['nome'];
         
-        header ('Location:  http://localhost:88/projeto/dashboard/home.php');
+        header ('Location:  http://localhost:81/projeto/dashboard/home.php');
         exit ();    
     //Não foi encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
     //redireciona o usuario para a página de login
@@ -35,7 +35,7 @@
                 <span aria-hidden='true'>&times;</span>
                 </button>
                 </div></div>";
-            header("Location: http://localhost:88/projeto/loginCNPJ/");
+            header("Location: http://localhost:81/projeto/loginCNPJ/");
         exit ();
     }
 
