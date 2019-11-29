@@ -138,6 +138,7 @@ $total_vinhos = mysqli_num_rows($resultado_vinhos);
                                                     <input type="password" name="senha" class="form-control" id="senha" placeholder="Senha">
                                                 </div>
                                                 <button type="submit" class="btn btn-success">Entrar</button>
+                                                <a href="http://localhost:81/projeto/senha/cliente.php" class="badge badge-light"><font color = "red">Esqueceu sua senha?</font></a>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
@@ -163,6 +164,10 @@ $total_vinhos = mysqli_num_rows($resultado_vinhos);
             if (isset($_SESSION['msgcad'])) {
                 echo $_SESSION['msgcad'];
                 unset($_SESSION['msgcad']);
+            }
+             if (isset($_SESSION['msgupd'])) {
+                echo $_SESSION['msgupd'];
+                unset($_SESSION['msgupd']);
             }
             ?>
             <div class="content">

@@ -16,6 +16,6 @@ echo "
 //Se for iguais os dados, corretos, aparece a página:
 
 }else{
-    header('Location:  http://localhost:81/projeto/admin/tela.php');
+    header('Location:  http://localhost:81/projeto/admin/colaboradores.php');
     
 }

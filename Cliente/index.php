@@ -13,6 +13,50 @@ include_once("./config/conexao.php");
   <title>Formulário Cadastro</title>
   <!-- Bootstrap CSS CDN -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>	
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$("#cpf").mask("000.000.000-00")
+			$("#cnpj").mask("00.000.000/0000-00")
+			$("#telefone").mask("(00) 0000-0000")
+			$("#salario").mask("999.999.990,00", {reverse: true})
+			$("#cep").mask("00.000-000")
+			$("#dataNascimento").mask("00/00/0000")
+			
+			$("#rg").mask("999.999.999-W", {
+				translation: {
+					'W': {
+						pattern: /[X0-9]/
+					}
+				},
+				reverse: true
+			})
+			
+			var options = {
+				translation: {
+					'A': {pattern: /[A-Z]/},
+					'a': {pattern: /[a-zA-Z]/},
+					'S': {pattern: /[a-zA-Z0-9]/},
+					'L': {pattern: /[a-z]/},
+				}
+			}
+			
+			$("#placa").mask("AAA-0000", options)
+			
+			$("#codigo").mask("AA.LLL.0000", options)
+			
+			$("#celular").mask("(00) 0000-00009")
+			
+			$("#celular").blur(function(event){
+				if ($(this).val().length == 15){
+					$("#celular").mask("(00) 00000-0009")
+				}else{
+					$("#celular").mask("(00) 0000-00009")
+				}
+			})
+		})
+		</script>
 
   <!-- Our Custom CSS -->
   <link rel="stylesheet" href="css/stylesheet1.css">
@@ -180,10 +224,10 @@ include_once("./config/conexao.php");
                 </div>
                 <div class="form-row">
                   <div class="col-md-4 mb-3">
-                    <input type="fone" class="form-control" name="telefone" id="telefone" placeholder="Telefone" required>
+                    <input type="text" class="form-control" name="telefone" id="telefone" placeholder="Telefone" required>
                   </div>
                   <div class="col-md-4 mb-3">
-                    <input type="fone" class="form-control" name="celular" id="celular" placeholder="Whatsapp" required>
+                    <input type="text" class="form-control" name="celular" id="celular" placeholder="Whatsapp" required>
                   </div>
                 </div>
                 <button class="btn btn-primary" type="submit">Enviar</button>
@@ -203,7 +247,7 @@ include_once("./config/conexao.php");
   </script>
   <!-- JS -->
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" />
 </body>
 
 </html>

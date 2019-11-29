@@ -10,7 +10,7 @@ include_once("conexao.php");
  $estado = mysqli_real_escape_string($conn, $_POST['uf']);
  $detalhes = mysqli_real_escape_string($conn, $_POST['sobre']);
  
- $result_usuario = "UPDATE  temp_clientes SET cep='$cep', endereco='$endereco', bairro = '$bairro', cidade ='$cidade', estado ='$estado'
+ $result_usuario = "UPDATE  temp_clientes SET cep='$cep', endereco='{$endereco}', bairro = '{$bairro}', cidade ='{$cidade}', estado ='$estado'
 					WHERE idCliente = '". $_SESSION ['clienteId']."'";
  $resultado_perfil = mysqli_query($conn, $result_usuario);
  

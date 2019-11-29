@@ -3,7 +3,6 @@ session_start ();
 include_once("conexao.php");
 
     //Declarando variáveis pegando campos do formulário
-    $sexo = $_POST['sexo'];
     $nome = filter_input (INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
     $sobrenome = filter_input (INPUT_POST, 'sobrenome', FILTER_SANITIZE_STRING);
     $nascimento = filter_input (INPUT_POST, 'nascimento', FILTER_SANITIZE_STRING);
@@ -139,8 +138,8 @@ if(!$erro){
 
     //Se não retornar nenhum erro de validação executa query de INSERT abaixo
 $result_usuario = "INSERT INTO temp_clientes (
-nome, sobrenome, nascimento, cpf, sexo, cep, numero, endereco, bairro, cidade, estado, email, senha, telefone, celular, criadoem) VALUES (
-'$nome','$sobrenome','$nascimento','$cpf','$sexo','$cep','$num','$endereco','$bairro','$cidade','$estado','$email',MD5('$senha'),'$telefone','$celular',NOW())";
+nome, sobrenome, nascimento, cpf,cep, numero, endereco, bairro, cidade, estado, email, senha, telefone, celular, criadoem) VALUES (
+'$nome','$sobrenome','$nascimento','$cpf','$cep','$num','$endereco','$bairro','$cidade','$estado','$email',MD5('$senha'),'$telefone','$celular',NOW())";
     $resultado_usuario = mysqli_query($conn, $result_usuario); 
         if(mysqli_insert_id($conn)){
   $_SESSION['msgcad'] ="<script type=\"text/javascript\">alert('Você se cadastrou com sucesso na Market Wine');</script>";

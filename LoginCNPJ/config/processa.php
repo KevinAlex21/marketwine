@@ -9,18 +9,13 @@ $cnpj = filter_input(INPUT_POST, 'cnpj', FILTER_SANITIZE_STRING);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
 $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
 $dados_rc = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-$cnpj = preg_replace('/[^0-9]/', '', (string) $cnpj);
+$cnpj = filter_input(INPUT_POST, 'cnpj', FILTER_SANITIZE_STRING);
 
 
 $erro = false;
 
 $dados_st = array_map('strip_tags', $dados_rc);
 $dados =    array_map('trim', $dados_st);
-
-// Elimina possivel mascara
-$cnpj = preg_replace("/[^0-9]/", "", $cnpj);
-$cnpj = str_pad($cnpj, 14, '0', STR_PAD_LEFT);
-
 
 // Verifica se todos os digitos são iguais
 if (preg_match('/(\d)\1{13}/', $cnpj)) {

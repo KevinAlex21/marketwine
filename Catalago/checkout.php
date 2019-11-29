@@ -28,7 +28,7 @@ $idc = $_SESSION['clienteId'];
   <meta name="author" content="">
   <link rel="icon" href="../../../../favicon.ico">
 
-  <title>Exemplo de formulário para checkout usando Bootstrap</title>
+  <title>checkout</title>
 
   <!-- Principal CSS do Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -297,7 +297,7 @@ $idc = $_SESSION['clienteId'];
     if (isset($_POST['enviar'])) {
       $b =  $_SESSION["total"];
       $sqlInserirVenda = mysqli_query($conn, "INSERT INTO pedidos (numPedido,total,tipoPagamento,enderecoEntrega,CEP,Bairro,Estado,numero,cidade,idCliente)
-   VALUES ('$datetime','$b','$tipoPag','$endereco','$cep','$bairro','$estado','$num','$cidade','$idc')");
+   VALUES ('$datetime','$b','{$tipoPag}','{$endereco}','{$cep}','{$bairro}','{$estado}','{$num}','{$cidade}','{$idc}')");
       $idVenda = mysqli_insert_id($conn);
 
 
@@ -350,11 +350,6 @@ $idc = $_SESSION['clienteId'];
     ?>
     <footer class="my-5 pt-5 text-muted text-center text-small">
       <p class="mb-1">&copy; 2019-2020 Market Wine</p>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Privacidade</a></li>
-        <li class="list-inline-item"><a href="#">Termos</a></li>
-        <li class="list-inline-item"><a href="#">Suporte</a></li>
-      </ul>
     </footer>
   </div>
 

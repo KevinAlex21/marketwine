@@ -72,13 +72,13 @@ $resultado_clientes= mysqli_query($conn, $result_clientes);
                     </button>
                 </div>
             </nav> 
-            <div class="content text-center">
-                <div class="container text-center">
+            <div class="content">
+                <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="row">
                                 <?php while ($row = mysqli_fetch_assoc($resultado_clientes)) { ?>
-                                    <span class="border">
+                                    
                                         <div class="card">
                                         <h5 class="card-header">Dados do Cliente</h5>
                                         <div class="card-body">
@@ -92,11 +92,11 @@ $resultado_clientes= mysqli_query($conn, $result_clientes);
                                         <strong>Telefone:&nbsp;</strong><?php echo $row['telefone']?></br>
                                         <strong>Celular:&nbsp;</strong><?php echo $row['celular']?></br>
                                         </p>
-                                            <a href="#" class="btn btn-danger">Apagar</a>
+                                            
                                             </font>
                                         </div>
                                         </div>
-                                    </span>
+                                    
                                     <br/>
                                 <?php } ?>
                             </div>

@@ -7,6 +7,7 @@ $conn->set_charset("utf8"); ;
 $idPedido = $_GET['idPedido'];
 $idCliente = $_SESSION ['clienteId'];
 
+
 	$queryClient = "SELECT * FROM TEMP_CLIENTES  WHERE idCliente ='". $_SESSION ['clienteId']."'";
 	$resultadoClient = mysqli_query($conn, $queryClient);	
 	$row_cliente = mysqli_fetch_assoc($resultadoClient) Or die('Erro: ' . mysqli_error($conn) . '  || SQL: ' . $resultadoClient.' Fim '. $queryClient);	
@@ -22,6 +23,8 @@ $idCliente = $_SESSION ['clienteId'];
 							where pedidos.idCliente=$idCliente and itens_pedido.idPedido = '$idPedido'");
 		$query->execute();
 		$res = $query->get_result();
+			$data = $row_usuario['dataCompra'];
+
 
 				$pagina = "<html>
 				<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
@@ -54,6 +57,8 @@ $idCliente = $_SESSION ['clienteId'];
 			<body>
 			<img src='img/NFee.png' width'100%' height='100%'>
 				Numero do Pedido: ".$row_usuario['numPedido']."<br>
+				Data da Compra: ".date('d/m/Y', strtotime($data))."<br>
+				 
 				Tipo de Pagamento: ".$row_usuario['tipoPagamento']."<br><br>
 				Nome: ".$row_cliente['nome']." ".$row_cliente['sobrenome']."<br>
 				CPF: ".$row_cliente['cpf']."<br>

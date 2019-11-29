@@ -3,7 +3,7 @@ $idProduto = $_GET['idProduto'];
 $result_vinhos = "SELECT * FROM temp_produtos WHERE idProduto='$idProduto'";
 $resultado_vinhos = mysqli_query($conn, $result_vinhos);
 $row = mysqli_fetch_assoc($resultado_vinhos);
-
+$my_date = date('d/m/Y', strtotime($date));
 $query = "SELECT * FROM temp_colaboradores WHERE idColaborador = '" . $row['idColaborador'] . "'";
 $roda = mysqli_query($conn, $query);
 $row2 = mysqli_fetch_assoc($roda);
@@ -150,12 +150,12 @@ $row2 = mysqli_fetch_assoc($roda);
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title"><?php echo $row['nome']; ?></h5>
-                                            <p class="card-text"><?php echo $row['detalhes']; ?><br><br>
+                                            <p class="card-text"><font color = "black"><?php echo $row['detalhes']; ?><br><br>
                                                 Vinho com a classe de <?php echo $row['classe']; ?>,
                                                 com a cor <?php echo $row['cor']; ?>
                                                 com um teor ótimo do estilo <?php echo $row['teor']; ?>,
                                                 de origem <?php echo $row['tipo']; ?>.
-                                                Com a safra de <?php echo $row['safra']; ?>.
+                                                Com a safra de <?php $safra = $row2['safra']; echo date('Y', strtotime($safra)) ?>.
                                             </p>
                                         </div>
 
@@ -164,7 +164,7 @@ $row2 = mysqli_fetch_assoc($roda);
                                     <div class="col-md-13 text-center">
                                         <div class="card card-user text-center">
                                             <div class="card-header">
-                                                Detalhes do Vendedor
+                                                Vendio e Entregue por:
                                             </div>
                                             <div class="card-body">
                                                 <div class="author">
@@ -176,7 +176,8 @@ $row2 = mysqli_fetch_assoc($roda);
                                                     <p class="description"><?php echo $row2['descricao']; ?> </p>
                                                     <p class="description">
                                                         Empresa Localizada na <?php echo $row2['endereco']; ?> No bairro de <?php echo $row2['bairro']; ?>
-                                                        na cidade <?php echo $row2['cidade'] ?>,&nbsp;<?php echo $row2['estado']; ?>&nbsp;CEP - <?php echo $row2['cep']; ?>
+                                                        na cidade <?php echo $row2['cidade'] ?>,&nbsp;<?php echo $row2['estado']; ?>&nbsp;CEP - <?php echo $row2['cep']; ?><br>
+                                                        Em casos de Troca por favor, contate-nos via Email:&nbsp;<?php echo $row2['email']?> </font>
                                                     </p>
                                                 </div>
                                             </div>

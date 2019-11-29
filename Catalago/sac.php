@@ -116,8 +116,16 @@
                                         <strong>Telefone:</strong> 0800 982 2831</br>
                                         <strong>Email:</strong> emailmarketwine@gmail.com</br>
                                         <strong>Whatsapp:</strong>21 991212299</p>
+</p><br>
+<p><h4>Baixe o formulário para abrir uma solicitação
+</h4><p>
 
-
+<a href="img/formuCance.pdf" download="Formulario Cancelamento">
+  <button type="button" class="btn btn-primary btn-lg"><i class="fas fa-download"></i>Formulario Cancelamento</button>
+</a>
+<a href="img/formuTroca.pdf" download="Formulario Troca">
+  <button type="button" class="btn btn-primary btn-lg"><i class="fas fa-download"></i>Formulario  de Troca</button>
+</a>
                                 </div>
                             </div>
                         </div>

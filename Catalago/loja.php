@@ -1,6 +1,23 @@
 <?php
 session_start();
 include_once("config/conexao.php");
+
+/* esse bloco de código em php verifica se existe a sessão, pois o usuário pode
+ simplesmente não fazer o login e digitar na barra de endereço do seu navegador 
+o caminho para a página principal do site (sistema), burlando assim a obrigação de 
+fazer um login, com isso se ele não estiver feito o login não será criado a session, 
+então ao verificar que a session não existe a página redireciona o mesmo
+ para a index.php.*/
+session_start();
+if((!isset ($_SESSION['clienteEmail']) == true) and (!isset ($_SESSION['clienteSenha']) == true))
+{
+  unset($_SESSION['clienteEmail']);
+  unset($_SESSION['clienteSenha']);
+  header('location:index.php');
+  }
+ 
+$logado = $_SESSION['clienteEmail'];
+
 $status = "";
 if (isset($_POST['nome']) && $_POST['nome'] != "") {
   $code = $_POST['nome'];
@@ -168,46 +185,42 @@ $total_vinhos = mysqli_num_rows($resultado_vinhos);
         <li>
           <a href="#tipoSubmennu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Origem</a>
           <ul class="collapse list-unstyled" id="tipoSubmennu">
-            <li>
-              <a href="#">Bordeaux</a>
-            </li>
-            <li>
-              <a href="#">Mabernet Franc)</a>
-            </li>
-            <li>
-              <a href="#">Cabernet Sauvignon</a>
-            </li>
-            <li>
-              <a href="#">Cabernet Sauvignon</a>
-            </li>
-            <li>
-              <a href="#">Chardonnay</a>
-            </li>
-            <li>
-              <a href="#">Malbec</a>
-            </li>
-            <li>
-              <a href="#">Merlot</a>
-            </li>
-            <li>
-              <a href="#">Pinot Noir</a>
-            </li>
-            <li>
-              <a href="porto.php">Porto</a>
-            </li>
-            <li>
-              <a href="#">Sangiovese</a>
-            </li>
-            <li>
-              <a href="#">Sauvignon Blanc</a>
-            </li>
-            <li>
-              <a href="#">Syrah (Shiraz)</a>
-            </li>
+                       <li>
+                            <a href="bordeaux.php">Bordeaux</a>
+                        </li>
+                        <li>
+                            <a href="mabernet.php">Mabernet Franc)</a>
+                        </li>
+                        <li>
+                            <a href="cabernet.php">Cabernet Sauvignon</a>
+                        </li>
+                        <li>
+                            <a href="chardonnay.php">Chardonnay</a>
+                        </li>
+                        <li>
+                            <a href="malbec.php">Malbec</a>
+                        </li>
+                        <li>
+                            <a href="merlot.php">Merlot</a>
+                        </li>
+                        <li>
+                            <a href="pinot.php">Pinot Noir</a>
+                        </li>
+                        <li class="active">
+                            <a href="porto.php">Porto</a>
+                        </li>
+                        <li>
+                            <a href="sangiovese.php">Sangiovese</a>
+                        </li>
+                        <li>
+                            <a href="sauvignon.php">Sauvignon Blanc</a>
+                        </li>
+                        <li>
+                            <a href="syrah.php">Syrah (Shiraz)</a>
+                        </li>
           </ul>
-        </li>
-        <li>
-          <a href="#">
+      
+          <a href="faq.php">
             <i class="fas fa-question"></i>
             FAQ
           </a>
@@ -304,8 +317,10 @@ $total_vinhos = mysqli_num_rows($resultado_vinhos);
 													<img  src="data:image;base64,' . $row['picture'] . '"></div>'; ?> <div class="card-body">
                         <h5 class="card-title text-center"><?php echo $row['nome']; ?></h5>
 
-                        <p class="card-text"><?php echo $row['classe']; ?></p>
-                        <p class="card-text"><?php echo $row['tipo']; ?></p>
+                        <small class="text-muted"><font color ="black"><?php echo $row['classe']; ?></small><br>
+                        <small class="text-muted"><?php echo $row['cor']; ?></small>
+                        <small class="text-muted"><?php echo $row['teor']; ?></small>
+                        <p class="card-text"><?php echo $row['tipo']; ?></font></p>
                         <ul class="list-group list-group-flush">
                           <li class="list-group-item">R$<?php echo number_format($row['valor'], 2, ',', '.'); ?></li>
                         </ul>

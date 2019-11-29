@@ -118,17 +118,24 @@
                                             Nossa empresa faz a pré-aprovação de todos os colaboradores que almejam vender em nosso site, tornando 100% seguro.</br>
                                             <b> 2) Em quanto tempo chega meu vinho ?</b></br>
                                             O serviço de entrega pode variar de acordo com a política de entrega da empresa de cada colaborador.</br>
-                                            <b> 3) Se o vinho vier errado, eu posso trocar ?</b></br>
-                                            O serviço de entrega pode variar de acordo com a política de entrega da empresa de cada colaborador.</br>
-                                            <b> 4) Como acompanho a entrega do meu vinho ?</b></br>
+                                            <b> 3) Como posso trocar meu vinho ?</b></br>
+                                           As mercadorias poderão ser trocadas até sete dias após o recebimento. A troca será realizada desde que o produto esteja
+                                            em perfeito estado, em sua embalagem original. O cliente deverá manifestar a intenção da troca pelo SAC, preenchendo o 
+                                            formulário disponível no site.</br>
+                                             <b> 4)Posso Cancelar minha compra?</b></br>
+                                           Deverá baixar o formulário de cancelamento e submete-lo pelo e-mail disponibilizado no SAC e retornar o produto recebido ao 
+                                           remetente. Após conferir a mercadoria retornada e não havendo irregularidades, o Colaborador encaminhará uma correspondência 
+                                           à administradora de cartão de crédito em cinco dias úteis, solicitando o estorno parcial ou total do débito eventualmente realizado.</br>
+                                            <b> 5) Como acompanho a entrega do meu vinho ?</b></br>
                                             O colaborador enviará o código de rastreamento para o email do cliente em até 3 dias úteis.</br>
-                                            <b> 5) Quais métodos de pagamento?</b></br>
+                                            <b> 6) Quais métodos de pagamento?</b></br>
                                             Através do cartão de crédito/ débito.</br>
-                                            <b> 6) A minha empresa pode se tornar colaboradora de vocês?</b></br>
+                                            <b> 7) A minha empresa pode se tornar colaboradora de vocês?</b></br>
                                             Sim, mas você precisa ter um CNPJ, acesse e efetue seu cadastro <a href="http://localhost:81/projeto/loginCNPJ/">
                                                 <font color="blue"> AQUI.</font>
-                                            </a></strong></br></br>
-
+                                            </a></strong></br>
+                                       
+                                    
                                     </p>
                                     </font>
                                 </div>
@@ -139,7 +146,7 @@
                             <div class="card card-user text-center">
                                 <form method="POST" action="./config/attfoto.php" enctype="multipart/form-data">
                                     <div class="card-image">
-                                        <img src="http://www.spa-francorchamps.be/sites/default/files/image/picto-faq.png" width="100%" height="100%" alt="...">
+                                        <img src="http://www.spa-francorchamps.be/sites/default/files/image/picto-faq.png" width="50%" height="50%" alt="...">
                                     </div>
                                     <hr>
                                 </form>

@@ -95,7 +95,7 @@ $resultado_colaboradores= mysqli_query($conn, $result_colaboradores);
                                         <strong>Telefone:&nbsp;</strong><?php echo $row['telefone']?></br>
                                         <strong>Celular:&nbsp;</strong><?php echo $row['celular']?></br>
                                         </p>
-                                            <a href="#" class="btn btn-danger">Apagar</a>
+                                           
                                             </font>
                                         </div>
                                         </div>

@@ -17,7 +17,7 @@ $resultado_perfil = mysqli_query($conn, $result_usuario);
 
 		if(mysqli_affected_rows($conn) !=0){
 			echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;http://localhost:81/projeto/dashboard/vinhos.php'>
+				<META HTTP-EQUIV=REFRESH CONTENT = '0;http://localhost:81/projeto/dashboard/user.php'>
 				<script type=\"text/javascript\">
 					alert(\"Parabéns seu perfil foi alterado com Sucesso.\");
 				</script>

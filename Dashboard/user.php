@@ -1,6 +1,19 @@
 <?php
 session_start();
 include_once("config/conexao.php");
+/* esse bloco de código em php verifica se existe a sessão, pois o usuário pode
+ simplesmente não fazer o login e digitar na barra de endereço do seu navegador 
+o caminho para a página principal do site (sistema), burlando assim a obrigação de 
+fazer um login, com isso se ele não estiver feito o login não será criado a session, 
+então ao verificar que a session não existe a página redireciona o mesmo
+ para a index.php.*/
+session_start();
+if((!isset ($_SESSION['usuarioEmail']) == true) and (!isset ($_SESSION['usuarioSenha']) == true))
+{
+  unset($_SESSION['usuarioEmail']);
+  unset($_SESSION['usuarioSenha']);
+  header('location: http://localhost:81/projeto/loginCNPJ/');
+  }
 $numero = "SELECT DISTINCT idPedido from faturamento where idColaborador ='" . $_SESSION['usuarioId'] . "'";
 $executaNum =  mysqli_query($conn,$numero);
 $totalnumVendas = mysqli_num_rows($executaNum);
@@ -18,8 +31,14 @@ $resultado_pfil =  mysqli_query($conn, $busca_pfil) or die(mysqli_error($conn) .
     <title>MK - Perfil</title>
     <!-- Bootstrap CSS CDN -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+     <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>	
+    <script type="text/javascript">
+    $("#telefone, #celular").mask("(00) 0000-00000");
+    </script>
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+   
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -200,20 +219,20 @@ $resultado_pfil =  mysqli_query($conn, $busca_pfil) or die(mysqli_error($conn) .
                                         <div class="row">
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
-                                                 <label for="pincode">Telefone</label>
-                                                 <input type="number" class="form-control" name="telefone" id="telefone" required />
+                                                 <label>Telefone</label>
+                                                 <input type="text" class="form-control" name="telefone" id="telefone" value="<?php echo $rows_pfil['telefone']; ?>" />
                                                 </div>
                                             </div>
                                           <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                  <label for="pincode">Celular</label>
-                                                 <input type="number" class="form-control" name="celular" id="celular"  required />
+                                                 <input type="text" class="form-control" name="celular" id="celular"  value="<?php echo $rows_pfil['celular']; ?>"  />
                                                 </div>
                                             </div>
                                             <div class="col-md-2 pr-1">
                                             <div class="form-group">
                                                  <label for="pincode">Número</label>
-                                                 <input type="number" class="form-control" name="numero" id="numero"  required />
+                                                 <input type="number" class="form-control" name="numero" id="numero" value="<?php echo $rows_pfil['numero']; ?>"   />
                                                 </div>
                                             </div>                                          
                                         </div>
@@ -299,7 +318,7 @@ $resultado_pfil =  mysqli_query($conn, $busca_pfil) or die(mysqli_error($conn) .
                 </div>
 
 
-                <script src="js/jquery-3.3.1.slim.min.js"> </script>
+                
                 <script src="js/popper.min.js"> </script> <!-- Bootstrap JS -->
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 

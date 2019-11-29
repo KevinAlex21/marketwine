@@ -1,6 +1,21 @@
 <?php
 session_start();
 include_once("config/conexao.php");
+/* esse bloco de código em php verifica se existe a sessão, pois o usuário pode
+ simplesmente não fazer o login e digitar na barra de endereço do seu navegador 
+o caminho para a página principal do site (sistema), burlando assim a obrigação de 
+fazer um login, com isso se ele não estiver feito o login não será criado a session, 
+então ao verificar que a session não existe a página redireciona o mesmo
+ para a index.php.*/
+session_start();
+if((!isset ($_SESSION['usuarioEmail']) == true) and (!isset ($_SESSION['usuarioSenha']) == true))
+{
+  unset($_SESSION['usuarioEmail']);
+  unset($_SESSION['usuarioSenha']);
+  header('location: http://localhost:81/projeto/loginCNPJ/');
+  }
+ 
+$logado = $_SESSION['clienteEmail'];
 $mes_atual = date("m");
 $numero = "SELECT DISTINCT idPedido from faturamento where idColaborador ='" . $_SESSION['usuarioId'] . "'";
 $executaNum =  mysqli_query($conn, $numero);
@@ -8,7 +23,7 @@ $totalnumVendas = mysqli_num_rows($executaNum);
 $estoque = "select SUM(quantidade) AS total  from temp_produtos where idColaborador ='" . $_SESSION['usuarioId'] . "'";
 $query = "select count(idColaborador) as vendendo from temp_produtos where idColaborador ='" . $_SESSION['usuarioId'] . "'";
 $query1 = "select count(idColaborador) as vendeu from faturamento where idColaborador ='" . $_SESSION['usuarioId'] . "' and YEARWEEK(dataVenda, 1) = YEARWEEK(CURDATE(), 1)";
-$query2 = "select sum(cast(REPLACE(valor, ',', '.') * quantidade as decimal(8,2))) as faturou from faturamento where idColaborador ='" . $_SESSION['usuarioId'] . "' and MONTH(dataVenda) = '$mes_atual' group by dataVenda";
+$query2 = "select sum(cast(REPLACE(valor, ',', '.') * quantidade as decimal(8,2))) as faturou from faturamento where idColaborador ='" . $_SESSION['usuarioId'] . "' and MONTH(dataVenda) =  MONTH(CURRENT_DATE())";
 
 $resul = mysqli_query($conn, $estoque);
 $result = mysqli_query($conn, $query);

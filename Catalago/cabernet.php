@@ -173,13 +173,13 @@ $total_vinhos = mysqli_num_rows($resultado_vinhos);
                 <li>
                     <a href="#tipoSubmennu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Origem</a>
                     <ul class="collapse list-unstyled" id="tipoSubmennu">
-<li>
+                        <li>
                             <a href="bordeaux.php">Bordeaux</a>
                         </li>
                         <li>
                             <a href="mabernet.php">Mabernet Franc)</a>
                         </li>
-                        <li>
+                        <li class= "active">
                             <a href="cabernet.php">Cabernet Sauvignon</a>
                         </li>
                         <li>

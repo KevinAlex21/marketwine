@@ -9,8 +9,11 @@ include_once("conexao.php");
  $cidade = mysqli_real_escape_string($conn, $_POST['cidade']);
  $estado = mysqli_real_escape_string($conn, $_POST['uf']);
  $detalhes = mysqli_real_escape_string($conn, $_POST['sobre']);
+ $telefone = mysqli_real_escape_string($conn, $_POST['telefone']);
+ $celular = mysqli_real_escape_string($conn, $_POST['celular']);
+ $numero = mysqli_real_escape_string($conn, $_POST['numero']);
  
- $result_usuario = "UPDATE  temp_colaboradores SET cep='$cep', endereco='$endereco', bairro = '$bairro', cidade ='$cidade', estado ='$estado', descricao='$detalhes'
+ $result_usuario = "UPDATE  temp_colaboradores SET telefone='$telefone', celular='$celular', numero='$numero', cep='$cep', endereco='$endereco', bairro = '$bairro', cidade ='$cidade', estado ='$estado', descricao='$detalhes'
 					WHERE idColaborador = '". $_SESSION ['usuarioId']."'";
  $resultado_perfil = mysqli_query($conn, $result_usuario);
  
